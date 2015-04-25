@@ -19,6 +19,9 @@ defmodule LiveBlog.Router do
     get "/posts", PostsController, :index
   end
 
+  socket "/ws/posts", LiveBlog do
+    channel "posts:all", PostsChannel
+  end
   # Other scopes may use custom stacks.
   # scope "/api", LiveBlog do
   #   pipe_through :api

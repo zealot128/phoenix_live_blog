@@ -1,5 +1,8 @@
 defmodule LiveBlog.Post do
   use LiveBlog.Web, :model
+  use Ecto.Model.Callbacks
+
+  after_insert :broadcast
 
   schema "posts" do
     field :title, :string
@@ -19,5 +22,11 @@ defmodule LiveBlog.Post do
   def changeset(model, params \\ nil) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def broadcast(changeset) do
+    IO.puts "new post created"
+    LiveBlog.Endpoint.broadcast! "posts:all", "new_post", %{content: changeset.changes.title}
+    changeset
   end
 end
