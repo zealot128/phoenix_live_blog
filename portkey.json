@@ -1,0 +1,22 @@
+{
+  "web/views/**_view.ex": {
+    "type": "view",
+    "related": "web/controllers/%s_controller.ex",
+    "template": "defmodule MyApp.%S do\n  use MyApp.Web, :view\nend"
+  },
+  "web/controllers/**_controller.ex": {
+    "type": "controller",
+    "related": "web/views/%s_view.ex",
+    "template": "defmodule MyApp.%SController do\n  use MyApp.Web, :controller\n  plug :action\n  def index(conn, _params) do\n    render conn, :index\n  end\nend"
+  },
+  "web/models/**.ex": {
+    "type": "model"
+  },
+  "web/templates/**.eex": {
+    "type": "template",
+    "related": "web/controllers/%s_controller.ex"
+  },
+  "web/router.ex": {
+    "type": "router"
+  }
+}
