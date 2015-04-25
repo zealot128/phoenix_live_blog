@@ -18,7 +18,7 @@ socket.join("posts:all", {}).receive("ok", (chan) => {
     if(payload.content) {
       $('#js-event-list').prepend(`
           <li>
-            <strong>${payload.content}></strong>
+            <strong>${payload.content}</strong>
             <small></small>
           </li>
           `);

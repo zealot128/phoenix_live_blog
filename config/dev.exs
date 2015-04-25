@@ -29,5 +29,5 @@ config :logger, :console, format: "[$level] $message\n"
 # Configure your database
 config :live_blog, LiveBlog.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "peter",
+  username: System.get_env["USER"],
   database: "live_blog_dev"
