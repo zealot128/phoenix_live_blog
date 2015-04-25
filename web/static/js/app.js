@@ -15,10 +15,10 @@ socket.join("posts:all", {}).receive("ok", (chan) => {
   console.log("joined that faacking channel");
 
   chan.on("new_post", (payload) => {
-    if(payload.title) {
-      $('.js-event-list').prepend(`
+    if(payload.content) {
+      $('#js-event-list').prepend(`
           <li>
-            <strong>${payload.title}></strong>
+            <strong>${payload.content}></strong>
             <small></small>
           </li>
           `);

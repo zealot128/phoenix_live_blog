@@ -1,5 +1,5 @@
 <h1>HELLO WORLD</h1>
-<ul class='js-event-list'>
+<ul id='js-event-list'>
 <%= for post <- @posts do %>
   <li>
     <strong><%= post.title %></strong>
